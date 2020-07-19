@@ -1,0 +1,24 @@
+2020/07/19-10:27:41.821 5b63 Reusing MANIFEST /home/bluesheep/.config/google-chrome/Default/Local Storage/leveldb/MANIFEST-000001
+2020/07/19-10:27:41.821 5b63 Recovering log #142
+2020/07/19-10:27:41.821 5b63 Reusing old log /home/bluesheep/.config/google-chrome/Default/Local Storage/leveldb/000142.log 
+2020/07/19-10:38:11.073 6294 Level-0 table #145: started
+2020/07/19-10:38:11.083 6294 Level-0 table #145: 89822 bytes OK
+2020/07/19-10:38:11.090 6294 Delete type=0 #142
+2020/07/19-10:38:32.468 6294 Level-0 table #147: started
+2020/07/19-10:38:32.493 6294 Level-0 table #147: 378890 bytes OK
+2020/07/19-10:38:32.500 6294 Delete type=0 #144
+2020/07/19-10:38:32.500 6294 Compacting 4@0 + 1@1 files
+2020/07/19-10:38:32.564 6294 Generated table #148@0: 1374 keys, 2336457 bytes
+2020/07/19-10:38:32.564 6294 Compacted 4@0 + 1@1 files => 2336457 bytes
+2020/07/19-10:38:32.570 6294 compacted to: files[ 0 2 1 0 0 0 0 ]
+2020/07/19-10:38:32.570 6294 Delete type=2 #145
+2020/07/19-10:38:32.570 6294 Delete type=2 #139
+2020/07/19-10:38:32.570 6294 Delete type=2 #147
+2020/07/19-10:38:32.570 6294 Delete type=2 #137
+2020/07/19-10:38:32.570 6294 Delete type=2 #141
+2020/07/19-10:39:32.468 6294 Level-0 table #150: started
+2020/07/19-10:39:32.502 6294 Level-0 table #150: 85163 bytes OK
+2020/07/19-10:39:32.508 6294 Delete type=0 #146
+2020/07/19-11:52:06.833 6294 Level-0 table #152: started
+2020/07/19-11:52:06.840 6294 Level-0 table #152: 15807 bytes OK
+2020/07/19-11:52:06.846 6294 Delete type=0 #149

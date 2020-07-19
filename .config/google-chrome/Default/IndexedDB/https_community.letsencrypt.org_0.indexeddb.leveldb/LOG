@@ -1,0 +1,15 @@
+2020/05/09-14:28:31.641 6f29 Reusing MANIFEST /home/bluesheep/.config/google-chrome/Default/IndexedDB/https_community.letsencrypt.org_0.indexeddb.leveldb/MANIFEST-000001
+2020/05/09-14:28:31.641 6f29 Recovering log #4
+2020/05/09-14:28:31.641 6f29 Reusing old log /home/bluesheep/.config/google-chrome/Default/IndexedDB/https_community.letsencrypt.org_0.indexeddb.leveldb/000004.log 
+2020/05/09-14:31:06.093 1b8c Level-0 table #8: started
+2020/05/09-14:31:06.101 1b8c Level-0 table #8: 89385 bytes OK
+2020/05/09-14:31:06.108 1b8c Delete type=0 #4
+2020/05/09-14:31:06.108 1b8c Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2020/05/09-14:31:06.108 1b8c Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x01\x01 \x03\x00\xc0\x10\x98\x96\x1fwB\x00\x01^\x00d\x00i\x00s\x00c\x00o\x00u\x00r\x00s\x00e\x00-\x001\x00|\x00h\x00t\x00t\x00p\x00s\x00:\x00/\x00/\x00s\x00j\x00c\x004\x00.\x00d\x00i\x00s\x00c\x00o\x00u\x00r\x00s\x00e\x00-\x00c\x00d\x00n\x00.\x00c\x00o\x00m\x00/\x00l\x00e\x00t\x00s\x00e\x00n\x00c\x00r\x00y\x00p\x00t\x00/\x00i\x00m\x00a\x00g\x00e\x00s\x00/\x00e\x00m\x00o\x00j\x00i\x00/\x00t\x00w\x00i\x00t\x00t\x00e\x00r\x00/\x00h\x00e\x00a\x00r\x00t\x00p\x00u\x00l\x00s\x00e\x00.\x00p\x00n\x00g\x00?\x00v\x00=\x009' @ 2446 : 1
+2020/05/09-14:31:06.108 1b8c Compacting 1@1 + 1@2 files
+2020/05/09-14:31:06.117 1b8c Generated table #9@1: 310 keys, 42300 bytes
+2020/05/09-14:31:06.117 1b8c Compacted 1@1 + 1@2 files => 42300 bytes
+2020/05/09-14:31:06.124 1b8c compacted to: files[ 0 0 1 0 0 0 0 ]
+2020/05/09-14:31:06.124 1b8c Delete type=2 #8
+2020/05/09-14:31:06.124 1b8c Delete type=2 #5
+2020/05/09-14:31:06.124 1b8c Manual compaction at level-1 from '\x00\x01\x01 \x03\x00\xc0\x10\x98\x96\x1fwB\x00\x01^\x00d\x00i\x00s\x00c\x00o\x00u\x00r\x00s\x00e\x00-\x001\x00|\x00h\x00t\x00t\x00p\x00s\x00:\x00/\x00/\x00s\x00j\x00c\x004\x00.\x00d\x00i\x00s\x00c\x00o\x00u\x00r\x00s\x00e\x00-\x00c\x00d\x00n\x00.\x00c\x00o\x00m\x00/\x00l\x00e\x00t\x00s\x00e\x00n\x00c\x00r\x00y\x00p\x00t\x00/\x00i\x00m\x00a\x00g\x00e\x00s\x00/\x00e\x00m\x00o\x00j\x00i\x00/\x00t\x00w\x00i\x00t\x00t\x00e\x00r\x00/\x00h\x00e\x00a\x00r\x00t\x00p\x00u\x00l\x00s\x00e\x00.\x00p\x00n\x00g\x00?\x00v\x00=\x009' @ 2446 : 1 .. (end); will stop at (end)

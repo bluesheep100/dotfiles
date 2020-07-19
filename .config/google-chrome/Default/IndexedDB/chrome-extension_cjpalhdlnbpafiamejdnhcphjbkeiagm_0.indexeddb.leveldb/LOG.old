@@ -1,0 +1,8 @@
+2020/07/18-22:57:14.893 4ca2 Reusing MANIFEST /home/bluesheep/.config/google-chrome/Default/IndexedDB/chrome-extension_cjpalhdlnbpafiamejdnhcphjbkeiagm_0.indexeddb.leveldb/MANIFEST-000001
+2020/07/18-22:57:14.893 4ca2 Recovering log #91
+2020/07/18-22:57:14.893 4ca2 Reusing old log /home/bluesheep/.config/google-chrome/Default/IndexedDB/chrome-extension_cjpalhdlnbpafiamejdnhcphjbkeiagm_0.indexeddb.leveldb/000091.log 
+2020/07/18-22:57:16.906 4d80 Level-0 table #95: started
+2020/07/18-22:57:16.906 4d80 Level-0 table #95: 0 bytes OK
+2020/07/18-22:57:16.913 4d80 Delete type=0 #91
+2020/07/18-22:57:16.913 4d80 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2020/07/18-22:57:16.913 4d80 Manual compaction at level-1 from (begin) .. (end); will stop at (end)

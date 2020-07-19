@@ -1,0 +1,36 @@
+<application>
+  <component name="ActionsLocalSummary">
+    <data>
+      <entry key="ActivateProjectToolWindow">
+        <ActionSummary times="9" last="1587661669802" />
+      </entry>
+      <entry key="ShowSettings">
+        <ActionSummary times="8" last="1587662053975" />
+      </entry>
+      <entry key="Tree-selectChild">
+        <ActionSummary times="21" last="1587661861038" />
+      </entry>
+      <entry key="Tree-selectNext">
+        <ActionSummary times="169" last="1587661862642" />
+      </entry>
+      <entry key="Tree-selectParent">
+        <ActionSummary times="17" last="1587661863294" />
+      </entry>
+      <entry key="Tree-selectPrevious">
+        <ActionSummary times="94" last="1587662056953" />
+      </entry>
+      <entry key="WelcomeScreen.OpenDirectoryProject">
+        <ActionSummary times="1" last="1587660818200" />
+      </entry>
+      <entry key="com.intellij.openapi.wm.impl.welcomeScreen.FlatWelcomeFrame$FlatWelcomeScreen$6">
+        <ActionSummary times="1" last="1587631669574" />
+      </entry>
+      <entry key="com.intellij.ui.content.tabs.TabbedContentAction$MyNextTabAction">
+        <ActionSummary times="20" last="1587661829118" />
+      </entry>
+      <entry key="com.intellij.ui.content.tabs.TabbedContentAction$MyPreviousTabAction">
+        <ActionSummary times="14" last="1587661826839" />
+      </entry>
+    </data>
+  </component>
+</application>

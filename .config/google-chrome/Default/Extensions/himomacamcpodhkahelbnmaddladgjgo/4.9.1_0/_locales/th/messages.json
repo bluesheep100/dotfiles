@@ -1,0 +1,10 @@
+{
+   "appDesc": {
+      "description": "The description of the application, displayed in the web store.",
+      "message": "โปรแกรมบริหารโครงการออนไลน์ด้วยแผนภูมิแกนต์"
+   },
+   "appName": {
+      "description": "The title of the application, displayed in the web store.",
+      "message": "โปรแกรมบริหารโครงการ Gantter"
+   }
+}

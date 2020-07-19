@@ -1,0 +1,10 @@
+{
+   "appDesc": {
+      "description": "The description of the application, displayed in the web store.",
+      "message": "Toonaangevende op Gantt-diagram gebaseerde online projectmanagementsoftware"
+   },
+   "appName": {
+      "description": "The title of the application, displayed in the web store.",
+      "message": "Gantter Projectmanagement"
+   }
+}

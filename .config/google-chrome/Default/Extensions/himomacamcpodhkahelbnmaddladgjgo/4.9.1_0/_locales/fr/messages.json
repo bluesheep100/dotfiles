@@ -1,0 +1,10 @@
+{
+   "appDesc": {
+      "description": "The description of the application, displayed in the web store.",
+      "message": "Logiciel de gestion de projet en ligne basé sur un diagramme de Gantt de pointe"
+   },
+   "appName": {
+      "description": "The title of the application, displayed in the web store.",
+      "message": "Gestion de projet Gantter"
+   }
+}

@@ -1,0 +1,5 @@
+2020/05/07-12:27:27.831 4b09 Reusing MANIFEST /home/bluesheep/.config/google-chrome/Default/IndexedDB/https_community.letsencrypt.org_0.indexeddb.leveldb/MANIFEST-000001
+2020/05/07-12:28:03.484 1b8c Level-0 table #5: started
+2020/05/07-12:28:03.492 1b8c Level-0 table #5: 61774 bytes OK
+2020/05/07-12:28:03.498 1b8c Delete type=0 #3
+2020/05/07-12:28:03.498 1b8c Manual compaction at level-0 from (begin) .. (end); will stop at (end)

@@ -1,0 +1,17 @@
+<application>
+  <component name="NodeJsLocalInterpreters">
+    <local-interpreter path="/usr/bin/node" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="NonModalCommitCustomization.IsApplied" value="true" />
+    <property name="appcds.runOnSecondStart" value="CL-201.6668.126-7ab1e8eaefc07a9f8794c21e6672b07963f067d4dbdec9791b701a3acbef6be2" />
+    <property name="ask.about.ctrl.y.shortcut" value="true" />
+    <property name="evlsprt3.201" value="19" />
+    <property name="file.gist.reindex.count" value="2" />
+    <property name="lastSeenTip" value="neue-QuickDefinition.html" />
+    <property name="lastTimeTipsWereShown" value="1588072275340" />
+    <property name="seenTips" value="neue-QuickDefinition.html" />
+    <property name="tasks.pass.word.conversion.enforced" value="true" />
+    <property name="ts.lib.d.ts.version" value="3.8.2" />
+  </component>
+</application>
