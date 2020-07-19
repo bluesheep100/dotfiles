@@ -1,0 +1,5 @@
+[user]
+	email = bluesheep100@hotmail.com
+	name = Anders Aagaard Schütt
+[core]
+	editor = nvim
