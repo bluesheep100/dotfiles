@@ -22,8 +22,13 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # Config folders
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
+ZDOTDIR="$HOME/.config/zsh"
+
+# Set zsh history file location
+HISTFILE="$HOME/.config/zsh/.zsh_history
+
 # Set zsh completiion dump directory
-compinit -d $HOME/.local/zsh/dump/
+compinit -d $HOME/.local/zsh/dump
 
 # Tool aliases
 alias wget="wget --hsts-file=\"$XDG_CONFIG_HOME/wget-hsts\""
