@@ -1,5 +1,0 @@
-2020/04/27-08:35:21.210 46ef Reusing MANIFEST /home/bluesheep/.config/google-chrome/Default/IndexedDB/https_www.oracle.com_0.indexeddb.leveldb/MANIFEST-000001
-2020/04/27-08:36:07.086 816 Level-0 table #5: started
-2020/04/27-08:36:07.117 816 Level-0 table #5: 1798 bytes OK
-2020/04/27-08:36:07.123 816 Delete type=0 #3
-2020/04/27-08:36:07.123 816 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

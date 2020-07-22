@@ -1,58 +1,95 @@
-# Path to your oh-my-zsh installation.
-export ZSH="/home/bluesheep/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+export ZSH="/home/bluesheep/.local/src/oh-my-zsh"
 ZSH_THEME="avit"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to automatically update without prompting.
+DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
+
+# Uncomment the following line to disable auto-setting terminal title.
+DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+plugins=(git zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+
 source $ZSH/oh-my-zsh.sh
-plugins=(git)
 
+# User configuration
+# History
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=10000
 
-# Add to $PATH
-export PATH=~/.composer/vendor/bin:$PATH
-if [ -d "$HOME/bin" ] ; then
-  PATH="$HOME/bin:$PATH"
-fi
+# Settings
+setopt appendhistory autocd nomatch notify
+unsetopt beep extendedglob
+bindkey -e # Keybindings: -v for VI, -e for EMACS
+bindkey '^R' history-incremental-search-backward
+CASE_SENSITIVE="false"
 
-# XDG config
-export XDG_CONFIG_HOME="$HOME/.config"
+# Auto-completion
+zstyle :compinstall filename "$HOME/.config/zsh/.zshrc"
+autoload -Uz compinit
+compinit -d "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
 
-# Config folders
-export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+# Add things to path
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/npm/bin"
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
-ZDOTDIR="$HOME/.config/zsh"
+# Set favorite programs
+export BROWSER="google-chrome"
+export EDITOR="nvim"
 
-# Set zsh history file location
-HISTFILE="$HOME/.config/zsh/.zsh_history
+# User specific aliases and functions
+alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
+alias vim='nvim'
+alias mutt='neomutt'
+alias hs='cd ~/Homestead && vagrant up && vagrant ssh'
+alias vpn="sudo openconnect vpn.pcvdata.dk --user aasc.skp"
+alias vihosts='sudo vim /etc/hosts'
 
-# Set zsh completiion dump directory
-compinit -d $HOME/.local/zsh/dump
+# Bluetooth commands
+alias bt-scan='bluetoothctl devices'
+alias bt-connect='bluetoothctl connect'
+alias bt-disconnect='bluetoothctl disconnect'
+alias bt-headphones='bluetoothctl connect 00:0A:45:0B:1C:4A'
+alias bt-on='bluetoothctl power on'
+alias bt-off='bluetoothctl power off'
 
-# Tool aliases
-alias wget="wget --hsts-file=\"$XDG_CONFIG_HOME/wget-hsts\""
-alias ngrok="~/ngrok"
-alias vim="nvim"
-
-# Config alises
-alias cz="vim ~/.zshrc"
-alias ci3="vim ~/.config/i3/config"
-
-# Project aliases
-alias cpca="cd /var/www/html/calc.test"
+# Shortcuts
 alias cphg="cd ~/projects/h3gui"
-alias cppf="cd /var/www/html/portfolio.test"
+alias cppf="cd /projects/portfolio"
+alias cprc="cd ~/projects/rubik"
 
 # Laravel
 alias art="php artisan"
 alias tink="php artisan tinker"
 
+# Config shortcuts
+alias cz="vim ~/.config/zsh/.zshrc"
+alias ci3="vim ~/.config/i3/config"
+
 # LAMP aliases
 alias a2r="sudo systemctl reload apache2"
 
 # Git aliases
-alias dotfile="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
+alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
 
 # Project creation functions
 a2vhost () {
@@ -90,7 +127,37 @@ EOF
     echo "Done!"
 }
 
-# Memes
+# Git aliases
+alias gcam='git add . && git commit -m'
+alias gst='git status'
+alias gd='git diff'
+alias gp='git push'
+alias gl='git pull'
+alias gc='git checkout'
+alias gcb='git checkout -b'
+
+# Fix some programs to use XDG
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+export HISTFILE="$XDG_DATA_HOME/zsh/history"
+export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+export GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+export MYSQLHISTFILE="$XDG_DATA_HOME/mysql/history"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# MOTD
 range=1000
 number=$RANDOM
 let "number %= $range"

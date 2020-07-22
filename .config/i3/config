@@ -43,7 +43,7 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # Lock screen
-bindsym $mod+Shift+Return exec i3lock
+bindsym --release $mod+Shift+Return exec /usr/local/bin/slock
 
 # change focus
 bindsym $mod+h focus left
@@ -126,8 +126,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exit
 
-# Take selection screenshot
-bindsym --release Shift+Print exec "scrot ~/Pictures/$(date --iso-8601='seconds').png -s -e 'xclip -selection c -t image/png < $f'"
+# Take selection screenshot and save to Pictures folder
+bindsym --release $mod+Print exec "scrot ~/Pictures/scrot/%Y-%m-%d_%s.png -s -e 'xclip -selection c -t image/png < $f'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

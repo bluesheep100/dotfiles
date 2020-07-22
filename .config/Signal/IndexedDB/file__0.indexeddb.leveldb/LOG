@@ -1,7 +1,0 @@
-2020/04/23-15:22:01.129 15ca Reusing MANIFEST /home/bluesheep/.config/Signal/IndexedDB/file__0.indexeddb.leveldb/MANIFEST-000001
-2020/04/23-15:22:01.129 15ca Recovering log #4
-2020/04/23-15:22:01.130 15ca Reusing old log /home/bluesheep/.config/Signal/IndexedDB/file__0.indexeddb.leveldb/000004.log 
-2020/04/23-15:22:01.293 15cc Level-0 table #8: started
-2020/04/23-15:22:01.300 15cc Level-0 table #8: 469 bytes OK
-2020/04/23-15:22:01.311 15cc Delete type=0 #4
-2020/04/23-15:22:01.311 15cc Manual compaction at level-0 from '\x00\x02\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x03\x00\x00\x00' @ 0 : 0; will stop at (end)

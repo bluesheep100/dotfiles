@@ -1,5 +1,0 @@
-2020/06/15-21:34:37.012 378 Reusing MANIFEST /home/bluesheep/.config/google-chrome/Default/IndexedDB/https_twitter.com_0.indexeddb.leveldb/MANIFEST-000001
-2020/06/15-21:35:19.993 74d3 Level-0 table #5: started
-2020/06/15-21:35:20.025 74d3 Level-0 table #5: 832 bytes OK
-2020/06/15-21:35:20.032 74d3 Delete type=0 #3
-2020/06/15-21:35:20.032 74d3 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
