@@ -1,4 +1,4 @@
-export ZSH="/home/bluesheep/.local/src/oh-my-zsh"
+export ZSH="/home/anders/.local/src/oh-my-zsh"
 ZSH_THEME="avit"
 
 # Uncomment the following line to use hyphen-insensitive completion.
@@ -25,7 +25,7 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(git zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -57,12 +57,25 @@ export BROWSER="google-chrome"
 export EDITOR="nvim"
 
 # User specific aliases and functions
+alias dmz-web03="ssh administrator@dmz-web03"
+alias web04="ssh web04@web04"
 alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
 alias vim='nvim'
 alias mutt='neomutt'
 alias hs='cd ~/Homestead && vagrant up && vagrant ssh'
 alias vpn="sudo openconnect vpn.pcvdata.dk --user aasc.skp"
 alias vihosts='sudo vim /etc/hosts'
+alias phpunit="./vendor/bin/phpunit tests --colors=auto --testdox"
+bwun() {
+    key=$(bw unlock --raw)
+    export BW_SESSION="$key"
+}
+limp() {
+    mysql -uroot --host 127.0.0.1 $1 < $2
+}
+ldump() {
+    mysqldump -uroot --host 127.0.0.1 --column-statistics=0 -dn $1 > $1.sql
+}
 
 # Bluetooth commands
 alias bt-scan='bluetoothctl devices'
@@ -73,9 +86,8 @@ alias bt-on='bluetoothctl power on'
 alias bt-off='bluetoothctl power off'
 
 # Shortcuts
-alias cphg="cd ~/projects/h3gui"
-alias cppf="cd /projects/portfolio"
-alias cprc="cd ~/projects/rubik"
+alias cpka="cd /mnt/c/laragon/www/kokkenapp"
+alias cphr="cd /mnt/c/laragon/www/hourregistration"
 
 # Laravel
 alias art="php artisan"
@@ -87,9 +99,6 @@ alias ci3="vim ~/.config/i3/config"
 
 # LAMP aliases
 alias a2r="sudo systemctl reload apache2"
-
-# Git aliases
-alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
 
 # Project creation functions
 a2vhost () {
@@ -128,13 +137,16 @@ EOF
 }
 
 # Git aliases
+alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
 alias gcam='git add . && git commit -m'
 alias gst='git status'
 alias gd='git diff'
 alias gp='git push'
 alias gl='git pull'
-alias gc='git checkout'
+alias gc='git commit'
 alias gcb='git checkout -b'
+alias gcd='git checkout development'
+alias grp='git remote prune origin'
 
 # Fix some programs to use XDG
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -156,9 +168,3 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-# MOTD
-range=1000
-number=$RANDOM
-let "number %= $range"
-sed "$number!d" ~/misc/hacker_stuff.txt | parrotsay
