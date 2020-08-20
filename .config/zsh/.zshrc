@@ -73,9 +73,7 @@ alias bt-on='bluetoothctl power on'
 alias bt-off='bluetoothctl power off'
 
 # Shortcuts
-alias cphg="cd ~/projects/h3gui"
-alias cppf="cd /projects/portfolio"
-alias cprc="cd ~/projects/rubik"
+alias cpmm="cd ~/projects/metalmatch"
 
 # Laravel
 alias art="php artisan"
@@ -83,6 +81,7 @@ alias tink="php artisan tinker"
 
 # Config shortcuts
 alias cz="vim ~/.config/zsh/.zshrc"
+alias hsc="vim ~/Homestead/Homestead.yaml"
 alias ci3="vim ~/.config/i3/config"
 
 # LAMP aliases
@@ -146,6 +145,8 @@ export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
+export VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
+export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME/vagrant/aliases"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export MYSQLHISTFILE="$XDG_DATA_HOME/mysql/history"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
