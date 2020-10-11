@@ -1,5 +1,5 @@
-export ZSH="/home/anders/.local/src/oh-my-zsh"
-ZSH_THEME="avit"
+export ZSH="/home/bluesheep/.local/src/oh-my-zsh"
+ZSH_THEME="bluesheep"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -64,8 +64,14 @@ alias vim='nvim'
 alias mutt='neomutt'
 alias hs='cd ~/Homestead && vagrant up && vagrant ssh'
 alias vpn="sudo openconnect vpn.pcvdata.dk --user aasc.skp"
-alias vihosts='sudo vim /etc/hosts'
+alias vihosts='sudo nvim /etc/hosts'
 alias phpunit="./vendor/bin/phpunit tests --colors=auto --testdox"
+alias catkey="cat $HOME/.ssh/id_rsa.pub"
+
+setlayout() {
+    i3-msg "workspace $1; append_layout $HOME/.config/i3/workspace-$1.json" > /dev/null
+}
+
 bwun() {
     key=$(bw unlock --raw)
     export BW_SESSION="$key"
@@ -99,53 +105,17 @@ alias ci3="vim ~/.config/i3/config"
 # LAMP aliases
 alias a2r="sudo systemctl reload apache2"
 
-# Project creation functions
-a2vhost () {
-    hostDir="/var/www/html/$1"
-    sudo mkdir -p $hostDir
-    echo "Creating virtual host directory.."
-    sudo chown -R $USER:$USER $hostDir
-    sudo chmod 775 $hostDir
-
-    echo "Creating configuration file.."
-    confPath="/etc/apache2/sites-available/$1.conf"
-    sudo touch $confPath
-    sudo chmod 755 $confPath
-
-    echo "Writing configuration.."
-    sudo tee $confPath <<-EOF > /dev/null
-    <VirtualHost *:80>
-        ServerAdmin webmaster@$1
-        ServerName $1
-        DocumentRoot /var/www/html/$1/public
-        <Directory /var/www/html/$1/public>
-            Options -Indexes +FollowSymLinks
-            AllowOverride All
-        </Directory>
-    </VirtualHost>
-EOF
-
-    echo "Enabling site.."
-    sudo a2ensite "$1.conf"
-    sudo systemctl reload apache2
-
-    echo "Writing to hosts file.."
-    sudo sed -i "127.0.0.1  $1" /etc/hosts
-
-    echo "Done!"
-}
-
 # Git aliases
 alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
-alias gcam='git add . && git commit -m'
-alias gst='git status'
-alias gd='git diff'
-alias gp='git push'
-alias gl='git pull'
-alias gc='git commit'
-alias gcb='git checkout -b'
-alias gcd='git checkout development'
-alias grp='git remote prune origin'
+alias gcam="git add . && git commit -m"
+alias gst="git status"
+alias gd="git diff"
+alias gp="git push"
+alias gl="git pull"
+alias gc="git commit"
+alias gcb="git checkout -b"
+alias gcd="git checkout development"
+alias grp="git remote prune origin"
 
 # Fix some programs to use XDG
 export XDG_DATA_HOME="$HOME/.local/share"
