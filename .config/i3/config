@@ -26,10 +26,12 @@ bindsym $mod+Shift+r restart
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exit
 
+exec --no-startup-id "i3-msg $(cat ~/.config/i3/layout)"
+
 ### Utilities ###
 
 # Take selection screenshot and save to Pictures folder
-bindsym --release $mod+Print exec "scrot ~/Pictures/scrot/%Y-%m-%d_%s.png -s -e 'xclip -selection c -t image/png < $f'"
+bindsym --release $mod+Print exec "scrot --freeze ~/Pictures/scrot/%Y-%m-%d_%s.png -s -e 'xclip -selection c -t image/png < $f'"
 
 # Lock screen
 bindsym --release $mod+Shift+Return exec /usr/local/bin/slock
@@ -38,10 +40,10 @@ bindsym --release $mod+Shift+Return exec /usr/local/bin/slock
 ### Autostart programs ###
 
 # Alacritty
-exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/alacritty;'
+#exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/alacritty;'
 
 # Google Chrome
-exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/google-chrome-stable;'
+#exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/google-chrome-stable;'
 
 #exec --no-startup-id i3-msg 'workspace 1;'
 ### Control modes ###
