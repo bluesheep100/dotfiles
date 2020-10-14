@@ -58,14 +58,16 @@ export EDITOR="nvim"
 
 # User specific aliases and functions
 alias dmz-web03="ssh administrator@dmz-web03"
+alias dmz-proxy="ssh proxymeister@dmz-web_proxy"
 alias web04="ssh web04@web04"
+alias catkey="cat ~/.ssh/id_rsa.pub"
 alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
 alias vim='nvim'
 alias mutt='neomutt'
 alias hs='cd ~/Homestead && vagrant up && vagrant ssh'
 alias vpn="sudo openconnect vpn.pcvdata.dk --user aasc.skp"
 alias vihosts='sudo nvim /etc/hosts'
-alias phpunit="./vendor/bin/phpunit tests --colors=auto --testdox"
+alias phpunit="./vendor/bin/phpunit tests --colors=auto"
 alias catkey="cat $HOME/.ssh/id_rsa.pub"
 
 setlayout() {
@@ -107,12 +109,14 @@ alias a2r="sudo systemctl reload apache2"
 
 # Git aliases
 alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
+<<<<<<< Updated upstream
 alias gcam="git add . && git commit -m"
 alias gst="git status"
 alias gd="git diff"
 alias gp="git push"
 alias gl="git pull"
 alias gc="git commit"
+alias gsp="git stash pop"
 alias gcb="git checkout -b"
 alias gcd="git checkout development"
 alias grp="git remote prune origin"
@@ -139,3 +143,6 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+alias winnode="/mnt/c/Program\ Files/nodejs/node.exe"
+alias newticket="winnode C:/Users/aasc.skp/Desktop/maketicket/maketicket.js -c C:/Users/aasc.skp/Desktop/maketicket/config.json"
