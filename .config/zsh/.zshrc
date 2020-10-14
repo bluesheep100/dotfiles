@@ -1,4 +1,4 @@
-export ZSH="/home/bluesheep/.local/src/oh-my-zsh"
+export ZSH="$HOME/.local/src/oh-my-zsh"
 ZSH_THEME="bluesheep"
 
 # Uncomment the following line to use hyphen-insensitive completion.
@@ -109,7 +109,6 @@ alias a2r="sudo systemctl reload apache2"
 
 # Git aliases
 alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
-<<<<<<< Updated upstream
 alias gcam="git add . && git commit -m"
 alias gst="git status"
 alias gd="git diff"
