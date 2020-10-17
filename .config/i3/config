@@ -1,6 +1,16 @@
 # Set modifier to Windows key
 set $mod Mod4
 
+# Remove window titlebars and set border
+for_window [class=".*"] border pixel 3
+
+# Set window gaps
+gaps inner 10
+
+# Only show gaps and window border with multiple windows
+smart_gaps on
+smart_borders on
+
 # Font for window titles.
 font pango:monospace 10
 
@@ -26,26 +36,28 @@ bindsym $mod+Shift+r restart
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exit
 
-exec --no-startup-id "i3-msg $(cat ~/.config/i3/layout)"
+# Load layout file
+exec i3-msg "$(cat ~/.config/i3/layout)"
+
+# Set window border color(s)
+client.focused #42c5f5 #42c5f5 #ffffff #42c5f5 #42c5f5
 
 ### Utilities ###
-
 # Take selection screenshot and save to Pictures folder
 bindsym --release $mod+Print exec "scrot --freeze ~/Pictures/scrot/%Y-%m-%d_%s.png -s -e 'xclip -selection c -t image/png < $f'"
+
+# Brightness control
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+
+# Volume control
+bindsym XF86AudioMute exec amixer sset Master toggle
+bindsym XF86AudioRaiseVolume exec amixer sset Master 10%+
+bindsym XF86AudioLowerVolume exec amixer sset Master 10%-
 
 # Lock screen
 bindsym --release $mod+Shift+Return exec /usr/local/bin/slock
 
-
-### Autostart programs ###
-
-# Alacritty
-#exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/alacritty;'
-
-# Google Chrome
-#exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/google-chrome-stable;'
-
-#exec --no-startup-id i3-msg 'workspace 1;'
 ### Control modes ###
 
 # Window resizing
@@ -71,31 +83,6 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
-
-# Volume control
-mode "volume" {
-    bindsym Up exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-    bindsym Down exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
- 
-}
-
-bindsym $mod+v mode "volume"
-
-# Brightness control
-mode "brightness" {
-    bindsym Up exec brightnessctl set +10%
-    bindsym Down exec brightnessctl set 10%-
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+b mode "brightness"
 
 ### Navigation ###
 
@@ -173,6 +160,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
-        font pango:monospace 10
+    status_command i3status
+    font pango:DejaVu Sans Mono 10
 }
+
