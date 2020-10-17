@@ -60,7 +60,6 @@ export EDITOR="nvim"
 alias dmz-web03="ssh administrator@dmz-web03"
 alias dmz-proxy="ssh proxymeister@dmz-web_proxy"
 alias web04="ssh web04@web04"
-alias catkey="cat ~/.ssh/id_rsa.pub"
 alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
 alias vim='nvim'
 alias mutt='neomutt'
@@ -146,3 +145,4 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 alias winnode="/mnt/c/Program\ Files/nodejs/node.exe"
 alias newticket="winnode C:/Users/aasc.skp/Desktop/maketicket/maketicket.js -c C:/Users/aasc.skp/Desktop/maketicket/config.json"
+
