@@ -53,7 +53,7 @@ export PATH="$PATH:$HOME/.local/npm/bin"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
 # Set favorite programs
-export BROWSER="google-chrome"
+export BROWSER="google-chrome-stable"
 export EDITOR="nvim"
 
 # User specific aliases and functions
@@ -67,6 +67,7 @@ alias vpn="sudo openconnect vpn.pcvdata.dk --user aasc.skp"
 alias vihosts='sudo nvim /etc/hosts'
 alias phpunit="./vendor/bin/phpunit tests --colors=auto --testdox"
 alias catkey="cat $HOME/.ssh/id_rsa.pub"
+alias l="ls -A"
 
 setlayout() {
     i3-msg "workspace $1; append_layout $HOME/.config/i3/workspace-$1.json" > /dev/null
