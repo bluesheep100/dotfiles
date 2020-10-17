@@ -24,4 +24,7 @@ let g:netrw_home=$XDG_CACHE_HOME.'/nvim'
 " Set Vim to share clipboard with the system
 set clipboard=unnamedplus
 
+" Reset terminal cursor when leaving Vim
+au VimLeave * set guicursor=a:ver5-blinkon0
+
 colorscheme elflord
