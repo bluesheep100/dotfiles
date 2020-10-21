@@ -28,3 +28,4 @@ set clipboard=unnamedplus
 au VimLeave * set guicursor=a:ver5-blinkon0
 
 colorscheme elflord
+
