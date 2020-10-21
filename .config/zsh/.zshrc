@@ -94,6 +94,7 @@ alias bt-on='bluetoothctl power on'
 alias bt-off='bluetoothctl power off'
 
 # Shortcuts
+source $ZDOTDIR/shortcuts
 
 # Laravel
 alias art="php artisan"
@@ -108,13 +109,14 @@ alias ci3="vim ~/.config/i3/config"
 alias a2r="sudo systemctl reload apache2"
 
 # Git aliases
-alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
+alias df="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
 alias gcam="git add . && git commit -m"
 alias gst="git status"
 alias gd="git diff"
 alias gp="git push"
 alias gl="git pull"
 alias gc="git commit"
+alias gcv="git commit --verbose"
 alias gsp="git stash pop"
 alias gcb="git checkout -b"
 alias gcd="git checkout development"
