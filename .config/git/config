@@ -3,3 +3,5 @@
 	name = Anders Aagaard Schütt
 [core]
 	editor = nvim
+[pull]
+	rebase = false
