@@ -5,19 +5,13 @@ ZSH_THEME="bluesheep"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to automatically update without prompting.
+# Automatically update without prompting.
 DISABLE_UPDATE_PROMPT="true"
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable auto-setting terminal title.
+# Disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
+# Display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -94,7 +88,11 @@ alias bt-on='bluetoothctl power on'
 alias bt-off='bluetoothctl power off'
 
 # Shortcuts
-source $ZDOTDIR/shortcuts
+if [[ ! -f "$ZDOTDIR/shortcuts" ]]; then
+    touch $ZDOTDIR/shortcuts
+fi
+
+source "$ZDOTDIR/shortcuts"
 
 # Laravel
 alias art="php artisan"
