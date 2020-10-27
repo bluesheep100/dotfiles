@@ -1,6 +1,10 @@
 export ZSH="$HOME/.local/src/oh-my-zsh"
 ZSH_THEME="bluesheep"
 
+# Set environment variable for vim theme,
+# because terminals handle color differently.
+VIM_THEME="slate"
+
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"

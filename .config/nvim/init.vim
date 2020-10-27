@@ -27,5 +27,5 @@ set clipboard=unnamedplus
 " Reset terminal cursor when leaving Vim
 au VimLeave * set guicursor=a:ver5-blinkon0
 
-colorscheme elflord
+colorscheme $VIM_THEME
 
