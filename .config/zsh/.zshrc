@@ -54,6 +54,9 @@ export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export BROWSER="google-chrome-stable"
 export EDITOR="nvim"
 
+# Accomodates sessions to clients without alacritty terminfo
+alias ssh="TERM=xterm-256color ssh"
+
 # User specific aliases and functions
 alias dmz-web03="ssh administrator@dmz-web03"
 alias dmz-proxy="ssh proxymeister@dmz-web_proxy"
@@ -61,7 +64,7 @@ alias web04="ssh web04@web04"
 alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
 alias vim='nvim'
 alias mutt='neomutt'
-alias hs='cd ~/Homestead && vagrant up && vagrant ssh'
+alias hs='cd ~/Homestead && vagrant up && TERM=xterm-256color vagrant ssh'
 alias vpn="sudo openconnect vpn.pcvdata.dk --user aasc.skp"
 alias vihosts='sudo nvim /etc/hosts'
 alias phpunit="./vendor/bin/phpunit tests --colors=auto"
