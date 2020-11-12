@@ -18,12 +18,7 @@ DISABLE_AUTO_TITLE="true"
 # Display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting laravel)
+plugins=(git laravel zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -57,34 +52,25 @@ export EDITOR="nvim"
 # Accomodates sessions to clients without alacritty terminfo
 alias ssh="TERM=xterm-256color ssh"
 
+# Basic program aliases
+alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
+alias vim="nvim"
+alias mutt="neomutt"
+alias l="ls -A"
+
+# Project convenience aliases
+alias hs="cd ~/Homestead && vagrant up && TERM=xterm-256color vagrant ssh"
+alias phpunit="./vendor/bin/phpunit tests --colors=auto"
+alias phinx="./vendor/bin/phinx"
+alias pmf="phinx rollback -t 0 && phinx migrate && phinx seed:run"
+
 # User specific aliases and functions
 alias dmz-web03="ssh administrator@dmz-web03"
 alias dmz-proxy="ssh proxymeister@dmz-web_proxy"
-alias web04="ssh web04@web04"
-alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
-alias vim='nvim'
-alias mutt='neomutt'
-alias hs='cd ~/Homestead && vagrant up && TERM=xterm-256color vagrant ssh'
-alias vpn="sudo openconnect vpn.pcvdata.dk --user aasc.skp"
 alias vihosts='sudo nvim /etc/hosts'
-alias phpunit="./vendor/bin/phpunit tests --colors=auto"
 alias catkey="cat $HOME/.ssh/id_rsa.pub"
-alias l="ls -A"
-
-setlayout() {
-    i3-msg "workspace $1; append_layout $HOME/.config/i3/workspace-$1.json" > /dev/null
-}
-
-bwun() {
-    key=$(bw unlock --raw)
-    export BW_SESSION="$key"
-}
-limp() {
-    mysql -uroot --host 127.0.0.1 $1 < $2
-}
-ldump() {
-    mysqldump -uroot --host 127.0.0.1 --column-statistics=0 -dn $1 > $1.sql
-}
+alias slo="i3-resurrect save -nd $HOME/.config/i3-resurrect -w"
+alias rlo="i3-resurrect restore -nd $HOME/.config/i3-resurrect -w"
 
 # Bluetooth commands
 alias bt-scan='bluetoothctl devices'
@@ -93,17 +79,6 @@ alias bt-disconnect='bluetoothctl disconnect'
 alias bt-headphones='bluetoothctl connect 00:0A:45:0B:1C:4A'
 alias bt-on='bluetoothctl power on'
 alias bt-off='bluetoothctl power off'
-
-# Shortcuts
-if [[ ! -f "$ZDOTDIR/shortcuts" ]]; then
-    touch $ZDOTDIR/shortcuts
-fi
-
-source "$ZDOTDIR/shortcuts"
-
-# Laravel
-alias art="php artisan"
-alias tink="php artisan tinker"
 
 # Config shortcuts
 alias cz="vim ~/.config/zsh/.zshrc"
@@ -127,6 +102,13 @@ alias gcb="git checkout -b"
 alias gcd="git checkout development"
 alias grp="git remote prune origin"
 
+# Load shortcuts
+if [[ ! -f "$ZDOTDIR/shortcuts" ]]; then
+    touch $ZDOTDIR/shortcuts
+fi
+
+source "$ZDOTDIR/shortcuts"
+
 # Fix some programs to use XDG
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -149,7 +131,4 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-alias winnode="/mnt/c/Program\ Files/nodejs/node.exe"
-alias newticket="winnode C:/Users/aasc.skp/Desktop/maketicket/maketicket.js -c C:/Users/aasc.skp/Desktop/maketicket/config.json"
 
