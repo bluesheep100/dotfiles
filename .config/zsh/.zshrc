@@ -116,6 +116,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 mkdir -p $XDG_DATA_HOME/zsh $XDG_DATA_HOME/wget $XDG_DATA_HOME/npm
 
+export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
