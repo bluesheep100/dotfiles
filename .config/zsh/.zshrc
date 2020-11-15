@@ -114,6 +114,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+mkdir -p $XDG_DATA_HOME/zsh $XDG_DATA_HOME/wget $XDG_DATA_HOME/npm
+
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
@@ -122,7 +124,7 @@ export GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
 export VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
 export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME/vagrant/aliases"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
-export MYSQLHISTFILE="$XDG_DATA_HOME/mysql/history"
+export MYSQLHISTFILE="$XDG_DATA_HOME/mysql_history"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
