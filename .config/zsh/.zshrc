@@ -1,28 +1,18 @@
 export ZSH="$HOME/.local/src/oh-my-zsh"
 ZSH_THEME="bluesheep"
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
 # Automatically update without prompting.
 DISABLE_UPDATE_PROMPT="true"
 
 # Disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
 
-# Display red dots whilst waiting for completion.
+# Display red dots while waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(git laravel zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
-# History
-HISTFILE=~/.histfile
-HISTSIZE=100000
-SAVEHIST=10000
 
 # Settings
 setopt appendhistory autocd nomatch notify
@@ -36,55 +26,43 @@ zstyle :compinstall filename "$HOME/.config/zsh/.zshrc"
 autoload -Uz compinit
 compinit -d "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
 
-# Add things to path
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.local/npm/bin"
-export PATH="$PATH:$HOME/.config/composer/vendor/bin"
-
 # Set favorite programs
 export BROWSER="google-chrome-stable"
 export EDITOR="nvim"
 
+##############################
+#           Aliases          #
+##############################
+
+##### Basic programs
 alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
 alias vim="nvim"
 alias mutt="neomutt"
 alias l="ls -A"
 
-# Project convenience aliases
-alias hs="cd ~/Homestead && vagrant up && TERM=xterm-256color vagrant ssh"
-alias phpunit="./vendor/bin/phpunit tests --colors=auto"
-alias phinx="./vendor/bin/phinx"
-alias pmf="phinx rollback -t 0 && phinx migrate && phinx seed:run"
-
-# User specific aliases and functions
-alias dmz-web03="ssh administrator@dmz-web03"
-alias dmz-proxy="ssh proxymeister@dmz-web_proxy"
-alias vihosts='sudo nvim /etc/hosts'
-alias catkey="cat $HOME/.ssh/id_rsa.pub"
-alias slo="i3-resurrect save -nd $HOME/.config/i3-resurrect -w"
-alias rlo="i3-resurrect restore -nd $HOME/.config/i3-resurrect -w"
-
-# Bluetooth commands
-alias bt-scan='bluetoothctl devices'
-alias bt-connect='bluetoothctl connect'
-alias bt-disconnect='bluetoothctl disconnect'
-alias bt-headphones='bluetoothctl connect 00:0A:45:0B:1C:4A'
-alias bt-on='bluetoothctl power on'
-alias bt-off='bluetoothctl power off'
-
-# Config shortcuts
+##### Config shortcuts
 alias cz="vim ~/.config/zsh/.zshrc"
 alias ci3="vim ~/.config/i3/config"
 alias hsc="vim ~/Homestead/Homestead.yaml"
 alias alc="vim ~/alacritty/alacritty.yml"
+alias vihosts='sudo nvim /etc/hosts'
 
-# Git aliases
-alias df="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
-alias dfs="df status"
-alias dfd="df diff"
-alias dfa="df add"
-alias dfc="df commit -v"
-alias dfp="df push"
+##### Management
+alias slo="i3-resurrect save -nd $HOME/.config/i3-resurrect -w"
+alias rlo="i3-resurrect restore -nd $HOME/.config/i3-resurrect -w"
+
+##### Project tools
+alias hs="cd ~/Homestead && vagrant up && vagrant ssh"
+alias phpunit="./vendor/bin/phpunit tests --colors=auto"
+alias phinx="./vendor/bin/phinx"
+alias pmf="phinx rollback -t 0 && phinx migrate && phinx seed:run"
+
+##### Miscellaneous utility
+alias dmz-web03="ssh administrator@dmz-web03"
+alias dmz-proxy="ssh proxymeister@dmz-web_proxy"
+alias catkey="cat $HOME/.ssh/id_rsa.pub"
+
+##### Git
 alias gcam="git add . && git commit -m"
 alias gst="git status"
 alias gd="git diff"
@@ -97,19 +75,49 @@ alias gcb="git checkout -b"
 alias gcd="git checkout development"
 alias grp="git remote prune origin"
 
-# Load shortcuts
+# Dotfiles
+alias df="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
+alias dfs="df status"
+alias dfd="df diff"
+alias dfa="df add"
+alias dfc="df commit -v"
+alias dfp="df push"
+
+##### Bluetooth
+alias bt-scan='bluetoothctl devices'
+alias bt-connect='bluetoothctl connect'
+alias bt-disconnect='bluetoothctl disconnect'
+alias bt-headphones='bluetoothctl connect 00:0A:45:0B:1C:4A'
+alias bt-on='bluetoothctl power on'
+alias bt-off='bluetoothctl power off'
+
+# Load project shortcuts
 if [[ ! -f "$ZDOTDIR/shortcuts" ]]; then
     touch $ZDOTDIR/shortcuts
 fi
 
 source "$ZDOTDIR/shortcuts"
 
-# Fix some programs to use XDG
+##############################
+#           Exports          #
+##############################
+
+###### Add things to path
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/npm/bin"
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+
+###### Fix programs to use XDG
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 
 mkdir -p $XDG_DATA_HOME/zsh $XDG_DATA_HOME/wget $XDG_DATA_HOME/npm
+
+###### History
+HISTFILE="$XDG_DATA_HOME/.histfile"
+HISTSIZE=100000
+SAVEHIST=10000
 
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
