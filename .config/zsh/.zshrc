@@ -1,10 +1,6 @@
 export ZSH="$HOME/.local/src/oh-my-zsh"
 ZSH_THEME="bluesheep"
 
-# Set environment variable for vim theme,
-# because terminals handle color differently.
-export VIM_THEME="slate"
-
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
@@ -49,10 +45,6 @@ export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export BROWSER="google-chrome-stable"
 export EDITOR="nvim"
 
-# Accomodates sessions to clients without alacritty terminfo
-alias ssh="TERM=xterm-256color ssh"
-
-# Basic program aliases
 alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
 alias vim="nvim"
 alias mutt="neomutt"
@@ -82,14 +74,17 @@ alias bt-off='bluetoothctl power off'
 
 # Config shortcuts
 alias cz="vim ~/.config/zsh/.zshrc"
-alias hsc="vim ~/Homestead/Homestead.yaml"
 alias ci3="vim ~/.config/i3/config"
-
-# LAMP aliases
-alias a2r="sudo systemctl reload apache2"
+alias hsc="vim ~/Homestead/Homestead.yaml"
+alias alc="vim ~/alacritty/alacritty.yml"
 
 # Git aliases
 alias df="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
+alias dfs="df status"
+alias dfd="df diff"
+alias dfa="df add"
+alias dfc="df commit -v"
+alias dfp="df push"
 alias gcam="git add . && git commit -m"
 alias gst="git status"
 alias gd="git diff"
