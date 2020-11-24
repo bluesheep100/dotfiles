@@ -44,7 +44,7 @@ alias l="ls -A"
 alias cz="vim ~/.config/zsh/.zshrc"
 alias ci3="vim ~/.config/i3/config"
 alias hsc="vim ~/Homestead/Homestead.yaml"
-alias alc="vim ~/alacritty/alacritty.yml"
+alias alc="vim ~/.config/alacritty/alacritty.yml"
 alias vihosts='sudo nvim /etc/hosts'
 
 ##### Management
