@@ -10,14 +10,14 @@ DISABLE_AUTO_TITLE="true"
 # Display red dots while waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git laravel zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(vi-mode git laravel zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 # Settings
 setopt appendhistory autocd nomatch notify
 unsetopt beep extendedglob
-bindkey -e # Keybindings: -v for VI, -e for EMACS
+bindkey -v
 bindkey '^R' history-incremental-search-backward
 CASE_SENSITIVE="false"
 
