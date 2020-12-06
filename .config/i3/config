@@ -36,24 +36,34 @@ bindsym $mod+Shift+r restart
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exit
 
-# Load layout file
-exec i3-msg "$(cat ~/.config/i3/layout)"
-
 # Set window border color(s)
 client.focused #42c5f5 #42c5f5 #ffffff #42c5f5 #42c5f5
 
+### Program shortcuts ###
+bindsym $mod+Mod2+KP_1 exec chromium
+bindsym $mod+Mod2+KP_2 exec discord
+bindsym $mod+Mod2+KP_3 exec alacritty -e "htop"
+
 ### Utilities ###
 # Take selection screenshot and save to Pictures folder
-bindsym --release $mod+Print exec "scrot --freeze ~/Pictures/scrot/%Y-%m-%d_%s.png -s -e 'xclip -selection c -t image/png < $f'"
+bindsym --release $mod+Shift+s exec "scrot --freeze ~/Pictures/scrot/%Y-%m-%d_%s.png -s -e 'xclip -selection c -t image/png < $f'"
 
 # Brightness control
-bindsym XF86MonBrightnessUp exec brightnessctl set +10%
-bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+set $briUp XF86MonBrightnessUp
+set $briDown XF86MonBrightnessDown
+bindsym $briUp exec brightnessctl set +4%
+bindsym $briDown exec brightnessctl set 4%-
+bindsym Ctrl+$briUp exec brightnessctl set +20%
+bindsym Ctrl+$briDown exec brightnessctl set 20%-
 
 # Volume control
+set $volUp XF86AudioRaiseVolume
+set $volDown XF86AudioLowerVolume
 bindsym XF86AudioMute exec pulseaudio-ctl mute
-bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up 10%
-bindsym XF86AudioLowerVolume exec pulseaudio-ctl down 10%
+bindsym $volUp exec pulseaudio-ctl up 5%
+bindsym $volDown exec pulseaudio-ctl down 5%
+bindsym Ctrl+$volUp exec pulseaudio-ctl up 20%
+bindsym Ctrl+$volDown exec pulseaudio-ctl down 20%
 
 # Lock screen
 bindsym --release $mod+Shift+Return exec /usr/local/bin/slock
