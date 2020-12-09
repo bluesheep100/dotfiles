@@ -38,6 +38,7 @@ export EDITOR="nvim"
 alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
 alias vim="nvim"
 alias mutt="neomutt"
+alias startx="sx"
 alias l="ls -A"
 
 ##### Config shortcuts

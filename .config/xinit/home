@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Import display variable for dunst
+systemctl --user import-environment DISPLAY
+
+xset s off
+xset r rate 180 55
+setxkbmap -option caps:escape
+setxkbmap dk
+#xmodmap -e "keycode 107 = Menu NoSymbol Menu"
+
+nitrogen --restore
+dunst& unclutter& numlockx& sxhkd& picom&
+exec i3

@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+
+if [ -z ${1+x} ]
+then
+    startx "$HOME/.config/xinit/home"
+else
+    startx "$HOME/.config/xinit/$1"
+fi
+
