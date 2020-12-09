@@ -1,0 +1,6 @@
+super + p
+    phpstorm_pick
+
+super + b
+  bitwarden-dmenu --dmenu-args='-i -l 15' --clear-clipboard 30 --session-timeout 28800 --sync-vault-after 3600
+
