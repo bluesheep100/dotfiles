@@ -24,8 +24,10 @@ bindsym $mod+q kill
 # Start a terminal
 bindsym $mod+Return exec alacritty
 
-# Start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# Start dmenu
+bindsym $mod+d exec dmenu_run -sb "#5b3787"
+# Launch dmenu centered
+bindsym $mod+Shift+d exec dmenu_run -c -l 20 -sb "#5b3787" -bw 2
 
 # Reload i3 configuration
 bindsym $mod+Shift+c reload
@@ -37,16 +39,27 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exit
 
 # Set window border color(s)
-client.focused #42c5f5 #42c5f5 #ffffff #42c5f5 #42c5f5
+client.focused #42c5f5 #42c5f5 #ffffff #653880 #42c5f5
 
 ### Program shortcuts ###
 bindsym $mod+Mod2+KP_1 exec chromium
 bindsym $mod+Mod2+KP_2 exec discord
 bindsym $mod+Mod2+KP_3 exec alacritty -e "htop"
+#bindsym $mod+Mod2+KP_4 exec
 
 ### Utilities ###
+
+# Lock screen
+bindsym --release $mod+Shift+Return exec /usr/local/bin/slock
+
+# Take fullscreen screenshot
+bindsym $mod+Print exec scrot ~/Pictures/scrot/%Y-%m-%d_%s.png -e 'xclip -selection c -t image/png < $f'
+
 # Take selection screenshot and save to Pictures folder
 bindsym --release $mod+Shift+s exec "scrot --freeze ~/Pictures/scrot/%Y-%m-%d_%s.png -s -e 'xclip -selection c -t image/png < $f'"
+
+# Display CPU temperatures
+bindsym $mod+Shift+t exec notify-send "$(cputemps)" --urgency=normal
 
 # Brightness control
 set $briUp XF86MonBrightnessUp
@@ -65,36 +78,13 @@ bindsym $volDown exec pulseaudio-ctl down 5%
 bindsym Ctrl+$volUp exec pulseaudio-ctl up 20%
 bindsym Ctrl+$volDown exec pulseaudio-ctl down 20%
 
-# Lock screen
-bindsym --release $mod+Shift+Return exec /usr/local/bin/slock
-
-### Control modes ###
-
-# Window resizing
-bindsym $mod+r mode "resize"
-
-mode "resize" {
-    # Pressing left will shrink the window’s width.
-    # Pressing right will grow the window’s width.
-    # Pressing up will shrink the window’s height.
-    # Pressing down will grow the window’s height.
-    bindsym h resize shrink width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym j resize shrink height 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
-
-    # same bindings, but for the arrow keys
-    bindsym Right resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Left resize grow width 10 px or 10 ppt
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
 ### Navigation ###
+
+# Split in horizontal orientation
+bindsym $mod+Ctrl+j split v
+
+# Split in vertical orientation
+bindsym $mod+Ctrl+l split h
 
 # change focus
 bindsym $mod+h focus left
@@ -118,12 +108,6 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
-# Split in horizontal orientation
-bindsym $mod+Ctrl+h split h
-
-# Split in vertical orientation
-bindsym $mod+Ctrl+v split v
 
 # Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -166,10 +150,41 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+### Control modes ###
+
+# Window resizing
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym j resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+
+    # same bindings, but for the arrow keys
+    bindsym Right resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Left resize grow width 10 px or 10 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
     status_command i3status
     font pango:DejaVu Sans Mono 10
+
+    colors {
+        focused_workspace #5b3787 #5b3787 #f0f0f0
+        background #202020
+    }
 }
 
