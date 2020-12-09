@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+sensors | grep 'Core' | awk '{print $2 $3}' | sed 's/:/: /g'
+
