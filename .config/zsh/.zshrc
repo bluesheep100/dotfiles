@@ -27,7 +27,7 @@ autoload -Uz compinit
 compinit -d "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
 
 # Set favorite programs
-export BROWSER="google-chrome-stable"
+export BROWSER="chromium"
 export EDITOR="nvim"
 
 ##############################
@@ -45,6 +45,7 @@ alias cz="vim ~/.config/zsh/.zshrc"
 alias ci3="vim ~/.config/i3/config"
 alias hsc="vim ~/Homestead/Homestead.yaml"
 alias alc="vim ~/.config/alacritty/alacritty.yml"
+alias cdu="vim ~/.config/dunst/dunstrc"
 alias vihosts='sudo nvim /etc/hosts'
 
 ##### Management
