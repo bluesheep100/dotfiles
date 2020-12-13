@@ -9,15 +9,6 @@ setxkbmap -option caps:escape
 setxkbmap dk
 #xmodmap -e "keycode 107 = Menu NoSymbol Menu"
 
-xrdb -merge ~/.Xresources
-xrandr \
-  --output DP-1 \
-    --primary \
-    --mode 1920x1080 \
-  --output HDMI-1 \
-    --mode 1920x1080 \
-    --pos 1920x0
-
 nitrogen --restore
 dunst& unclutter& numlockx& sxhkd& picom&
 exec i3
