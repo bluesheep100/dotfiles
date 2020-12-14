@@ -30,6 +30,10 @@ compinit -d "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
 export BROWSER="chromium"
 export EDITOR="nvim"
 
+# Set color of regular files to light purple
+# and remove green shit
+export LS_COLORS="fi=95:tw=00;33:ow=01;33:"
+
 ##############################
 #           Aliases          #
 ##############################
