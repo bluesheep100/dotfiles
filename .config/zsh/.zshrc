@@ -30,10 +30,6 @@ compinit -d "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
 export BROWSER="chromium"
 export EDITOR="nvim"
 
-# Remove annoying green background in ls output
-LS_COLORS=$LS_COLORS:'tw=00;33:ow=01;33:'
-export LS_COLORS
-
 ##############################
 #           Aliases          #
 ##############################
