@@ -23,6 +23,7 @@ CASE_SENSITIVE="false"
 
 # Auto-completion
 zstyle :compinstall filename "$HOME/.config/zsh/.zshrc"
+setopt completealiases
 autoload -Uz compinit
 compinit -d "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
 
@@ -118,7 +119,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-mkdir -p $XDG_DATA_HOME/zsh $XDG_DATA_HOME/wget $XDG_DATA_HOME/npm
+mkdir -p $XDG_DATA_HOME/zsh $XDG_DATA_HOME/wget $XDG_DATA_HOME/npm $XDG_DATA_HOME/gnupg
 
 ###### History
 HISTFILE="$XDG_DATA_HOME/.histfile"
