@@ -1,6 +1,9 @@
 # Set modifier to Windows key
 set $mod Mod4
 
+# Set terminal
+set $TERM alacritty
+
 # Remove window titlebars and set border
 for_window [class=".*"] border pixel 3
 
@@ -9,7 +12,9 @@ gaps inner 10
 
 # Only show gaps and window border with multiple windows
 smart_gaps on
-smart_borders on
+#smart_borders on
+
+focus_follows_mouse no
 
 # Font for window titles.
 font pango:monospace 10
@@ -22,7 +27,7 @@ floating_modifier $mod
 bindsym $mod+q kill
 
 # Start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec $TERM
 
 # Start dmenu
 bindsym $mod+d exec dmenu_run -sb "#5b3787"
@@ -42,10 +47,12 @@ bindsym $mod+Shift+q exit
 client.focused #42c5f5 #42c5f5 #ffffff #653880 #42c5f5
 
 ### Program shortcuts ###
+# File manager
+bindsym $mod+Shift+f exec $TERM -e "vifm"
+
 bindsym $mod+Mod2+KP_1 exec chromium
 bindsym $mod+Mod2+KP_2 exec discord
-bindsym $mod+Mod2+KP_3 exec alacritty -e "htop"
-#bindsym $mod+Mod2+KP_4 exec
+bindsym $mod+Mod2+KP_3 exec $TERM -e "htop"
 
 ### Utilities ###
 
@@ -160,16 +167,16 @@ mode "resize" {
     # Pressing right will grow the window’s width.
     # Pressing up will shrink the window’s height.
     # Pressing down will grow the window’s height.
-    bindsym h resize shrink width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym j resize shrink height 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
+    bindsym h resize shrink width 5 px or 5 ppt
+    bindsym k resize grow height 5 px or 5 ppt
+    bindsym j resize shrink height 5 px or 5 ppt
+    bindsym l resize grow width 5 px or 5 ppt
 
     # same bindings, but for the arrow keys
-    bindsym Right resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Left resize grow width 10 px or 10 ppt
+    bindsym Right resize shrink width 5 px or 5 ppt
+    bindsym Down resize grow height 5 px or 5 ppt
+    bindsym Up resize shrink height 5 px or 5 ppt
+    bindsym Left resize grow width 5 px or 5 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -183,8 +190,8 @@ bar {
     font pango:DejaVu Sans Mono 10
 
     colors {
-        focused_workspace #5b3787 #5b3787 #f0f0f0
-        background #202020
+        focused_workspace "#5b3787" "#5b3787" "#f0f0f0"
+        background "#292d3e"
     }
 }
 
