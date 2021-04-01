@@ -9,9 +9,6 @@ endif
 " Enter the current decade
 set nocompatible
 
-" Map leader key to comma(,)
-let g:mapleader = ','
-
 " Absolute and relative line numbers
 set relativenumber
 set number
@@ -27,6 +24,21 @@ set ignorecase
 set nohlsearch
 set smartcase
 set noerrorbells
+
+" Plugins
+call plug#begin(stdpath('data') . '/plugged')
+
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'tpope/vim-commentary'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'mattn/emmet-vim'
+
+call plug#end()
+
+" Map leader key to comma(,)
+let g:mapleader = ','
 
 " Show commands as they're typed
 set showcmd
@@ -47,18 +59,7 @@ autocmd FileType * setlocal formatoptions-=cro
 command! MakeTags !ctags -R .
 
 " XDG Base Directory settings
-set viminfo+='1000,n$XDG_DATA_HOME/nvim/viminfo
-
-" Plugins
-call plug#begin(stdpath('data') . '/plugged')
-
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'tpope/vim-commentary'
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-entire'
-Plug 'vim-scripts/ReplaceWithRegister'
-
-call plug#end()
+set viminfo='0,:0,<0,@0,f0,n~/.viminfo
 
 " Colorscheme
 colorscheme palenight
