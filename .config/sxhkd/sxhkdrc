@@ -1,6 +1,27 @@
 super + p
     phpstorm_pick
 
-super + b
-  bitwarden-dmenu --dmenu-args='-i -l 15' --clear-clipboard 30 --session-timeout 28800 --sync-vault-after 3600
+super + shift + f
+    alacritty -e "vifm"
+
+super + shift + s
+    scrot --freeze ~/Pictures/scrot/%Y-%m-%d_%s.png -s -e 'xclip -selection c -t image/png < $f'
+
+super + Print
+    scrot ~/Pictures/scrot/%Y-%m-%d_%s.png -e 'xclip -selection c -t image/png < $f'
+
+XF86AudioMute
+    pulseaudio-ctl mute
+
+XF86AudioRaiseVolume
+    pulseaudio-ctl up 5%
+
+XF86AudioLowerVolume
+    pulseaudio-ctl down 5%
+
+XF86MonBrightnessUp
+    brightnessctl set +4%
+
+XF86MonBrightnessDown
+    brightnessctl set 4%-
 
