@@ -1,11 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 PROJECT="$(ls "$HOME/Projects/" | dmenu -i -p "Open project: ")"
 export SSH_AUTH_SOCK
 if [ -n "$PROJECT" ]
 then
-    for ((i = 0; i < 2; i++)) do
-        i3-msg 'append_layout ~/.config/i3/ph_phpstorm.json'
-    done
-
     "$HOME/.local/bin/phpstorm" "$HOME/Projects/$PROJECT" 
 fi
