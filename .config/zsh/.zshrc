@@ -53,6 +53,7 @@ alias hsc="vim ~/Homestead/Homestead.yaml"
 alias alc="vim ~/.config/alacritty/alacritty.yml"
 alias cdu="vim ~/.config/dunst/dunstrc"
 alias cdwm="vim ~/Programs/dwm/config.h && cd ~/Programs/dwm && sudo make clean install"
+alias csx="vim ~/.config/sxhkd/sxhkdrc"
 alias vihosts='sudo nvim /etc/hosts'
 
 ##### Management
