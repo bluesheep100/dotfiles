@@ -1,0 +1,24 @@
+#!/bin/zsh
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT=MToolkit
+
+# Import display variable for dunst
+systemctl --user import-environment DISPLAY
+
+xset s off
+xset r rate 180 55
+setxkbmap -option caps:escape
+setxkbmap dk
+#xmodmap -e "keycode 107 = Menu NoSymbol Menu"
+
+autorandr
+
+dunst& unclutter& numlockx& sxhkd& picom&
+nitrogen --restore
+
+# Attempt starting the PulseAudio daemon, just in case?
+pulseaudio -D > /dev/null
+
+~/.local/bin/dwmstatus &
+exec /usr/local/bin/dwm
