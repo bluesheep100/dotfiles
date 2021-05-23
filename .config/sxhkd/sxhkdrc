@@ -5,10 +5,11 @@ super + shift + f
     alacritty -e "vifm"
 
 super + shift + s
-    scrot --freeze ~/Pictures/scrot/%Y-%m-%d_%s.png -s -e 'xclip -selection c -t image/png < $f'
+    maim -s -u | xclip -selection clipboard -t image/png -i
 
-super + Print
-    scrot ~/Pictures/scrot/%Y-%m-%d_%s.png -e 'xclip -selection c -t image/png < $f'
+super + z
+    DOC=$(ls ~/Documents | dmenu -c -i -l 20 -sb "#5b3787")
+    zathura "~/Documents/$DOC"
 
 XF86AudioMute
     pulseaudio-ctl mute
@@ -20,8 +21,8 @@ XF86AudioLowerVolume
     pulseaudio-ctl down 5%
 
 XF86MonBrightnessUp
-    brightnessctl set +4%
+    brightnessctl set +5%
 
 XF86MonBrightnessDown
-    brightnessctl set 4%-
+    brightnessctl set 5%-
 
