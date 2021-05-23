@@ -1,5 +1,5 @@
 #!/bin/bash
-PROJECT="$(ls "$HOME/Projects/" | dmenu -i -p "Open project: ")"
+PROJECT="$(ls "$HOME/Projects/" | dmenu -i -sb "#5b3787" -p "Open project: ")"
 export SSH_AUTH_SOCK
 if [ -n "$PROJECT" ]
 then
