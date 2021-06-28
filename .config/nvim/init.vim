@@ -33,7 +33,7 @@ Plug 'tpope/vim-commentary'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'mattn/emmet-vim'
+Plug 'markonm/traces.vim'
 
 call plug#end()
 
