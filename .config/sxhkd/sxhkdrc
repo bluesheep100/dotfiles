@@ -1,15 +1,20 @@
-super + p
-    phpstorm_pick
-
-super + shift + f
-    alacritty -e "vifm"
-
 super + shift + s
     maim -s -u | xclip -selection clipboard -t image/png -i
 
+super + n
+    alacritty -e nvim /home/bluesheep/Notes/notes.md
+
+super + m
+    alacritty -e /usr/bin/neomutt
+
+super + p
+    phpstorm_pick
+
 super + z
-    DOC=$(ls ~/Documents | dmenu -c -i -l 20 -sb "#5b3787")
-    zathura "~/Documents/$DOC"
+    zatpick
+
+super + w
+    wp_pick
 
 XF86AudioMute
     pulseaudio-ctl mute

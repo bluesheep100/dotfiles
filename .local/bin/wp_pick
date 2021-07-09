@@ -1,0 +1,5 @@
+#!/bin/bash
+
+WP=$(ls $HOME/Pictures/wallpapers | dmenu -i -l 10)
+xwallpaper --output eDP1 --maximize "$HOME/Pictures/wallpapers/$WP"
+

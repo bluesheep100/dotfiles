@@ -1,0 +1,7 @@
+#!/bin/bash
+DOC="$(ls $HOME/Documents | dmenu -i)"
+
+if [ "$DOC" ]; then
+    zathura "$HOME/Documents/$DOC"
+fi
+
