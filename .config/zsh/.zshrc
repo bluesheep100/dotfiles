@@ -21,6 +21,22 @@ bindkey -v
 bindkey '^R' history-incremental-search-backward
 CASE_SENSITIVE="false"
 
+# Change cursor shape for different vi modes.
+function zle-keymap-select () {
+    case $KEYMAP in
+        vicmd) echo -ne '\e[1 q';;      # block
+        viins|main) echo -ne '\e[5 q';; # beam
+    esac
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new promp
+
 # Auto-completion
 zstyle :compinstall filename "$HOME/.config/zsh/.zshrc"
 setopt completealiases
@@ -30,6 +46,11 @@ compinit -d "$HOME/.cache/zsh/zcompdump-$ZSH_VERSION"
 # Set favorite programs
 export BROWSER="brave"
 export EDITOR="nvim"
+
+###### Fix programs to use XDG
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
 
 # Set color of regular files to light purple
 # and remove green shit
@@ -47,18 +68,15 @@ alias startx="sx"
 alias l="ls -A"
 
 ##### Config shortcuts
+alias cvim="vim ~/.config/nvim/init.vim"
 alias cz="vim ~/.config/zsh/.zshrc"
 alias ci3="vim ~/.config/i3/config"
 alias hsc="vim ~/Homestead/Homestead.yaml"
 alias alc="vim ~/.config/alacritty/alacritty.yml"
 alias cdu="vim ~/.config/dunst/dunstrc"
-alias cdwm="vim ~/Programs/dwm/config.h && cd ~/Programs/dwm && sudo make clean install"
+alias cdwm="vim ~/Programs/dwm/config.h && cd ~/Programs/dwm && doas make clean install"
 alias csx="vim ~/.config/sxhkd/sxhkdrc"
 alias vihosts='sudo nvim /etc/hosts'
-
-##### Management
-alias slo="i3-resurrect save -nd $HOME/.config/i3-resurrect -w"
-alias rlo="i3-resurrect restore -nd $HOME/.config/i3-resurrect -w"
 
 ##### Project tools
 alias hs="cd ~/Homestead && vagrant up && vagrant ssh"
@@ -67,8 +85,8 @@ alias phinx="./vendor/bin/phinx"
 alias pmf="phinx rollback -t 0 && phinx migrate && phinx seed:run"
 
 ##### Miscellaneous utility
-alias dmz-web03="ssh administrator@dmz-web03"
-alias dmz-proxy="ssh proxymeister@dmz-web_proxy"
+alias yeet="rm -rf"
+alias pkl="pacman -Qe | less"
 alias catkey="cat $HOME/.ssh/id_rsa.pub"
 
 ##### Git
@@ -116,11 +134,6 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/npm/bin"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
-###### Fix programs to use XDG
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-
 mkdir -p $XDG_DATA_HOME/zsh $XDG_DATA_HOME/wget $XDG_DATA_HOME/npm $XDG_DATA_HOME/gnupg
 
 ###### History
@@ -144,6 +157,7 @@ export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
 export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/mbsyncrc"
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
