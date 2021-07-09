@@ -15,10 +15,12 @@ setxkbmap dk
 autorandr
 
 dunst& unclutter& numlockx& sxhkd& picom&
-nitrogen --restore
 
-# Attempt starting the PulseAudio daemon, just in case?
-pulseaudio -D > /dev/null
+WP=$(ls ~/Pictures/wallpapers | shuf -n1)
+xwallpaper --output eDP1 --maximize "$HOME/Pictures/wallpapers/$WP"
+
+# Attempt starting PulseAudio daemon?
+pulseaudio --start
 
 ~/.local/bin/dwmstatus &
 exec /usr/local/bin/dwm
