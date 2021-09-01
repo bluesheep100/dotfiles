@@ -52,8 +52,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-# Set color of regular files to light purple
-# and remove green shit
+# Set color of regular files to light purple and remove green shit
 export LS_COLORS="fi=95:tw=00;33:ow=01;33:"
 
 ##############################
@@ -66,6 +65,7 @@ alias vim="nvim"
 alias mutt="neomutt"
 alias startx="sx"
 alias l="ls -A"
+alias sudo="doas"
 
 ##### Config shortcuts
 alias cvim="vim ~/.config/nvim/init.vim"
@@ -79,6 +79,7 @@ alias csx="vim ~/.config/sxhkd/sxhkdrc"
 alias vihosts='sudo nvim /etc/hosts'
 
 ##### Project tools
+alias proj='cd "$HOME/Projects/$(ls ~/Projects | fzf --layout reverse-list)"'
 alias hs="cd ~/Homestead && vagrant up && vagrant ssh"
 alias phpunit="./vendor/bin/phpunit tests --colors=auto"
 alias phinx="./vendor/bin/phinx"
@@ -88,6 +89,10 @@ alias pmf="phinx rollback -t 0 && phinx migrate && phinx seed:run"
 alias yeet="rm -rf"
 alias pkl="pacman -Qe | less"
 alias catkey="cat $HOME/.ssh/id_rsa.pub"
+alias cringe="cat $HOME/Documents/cringe.txt"
+
+##### Laravel
+alias pamco="php artisan make:component"
 
 ##### Git
 alias gcam="git add . && git commit -m"
@@ -102,7 +107,7 @@ alias gcb="git checkout -b"
 alias gcd="git checkout development"
 alias grp="git remote prune origin"
 
-# Dotfiles
+##### Dotfiles
 alias df="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
 alias dfs="df status"
 alias dfd="df diff"
