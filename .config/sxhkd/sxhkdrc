@@ -4,7 +4,7 @@ super + shift + s
 super + n
     alacritty -e nvim /home/bluesheep/Notes/notes.md
 
-super + m
+super + shift + m
     alacritty -e /usr/bin/neomutt
 
 super + p
