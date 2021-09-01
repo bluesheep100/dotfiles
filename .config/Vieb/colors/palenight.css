@@ -1,0 +1,23 @@
+:root {
+    --bg: #292d3e;
+
+    /* Tabs */
+    --tab-background: #34324a;
+    --tab-suspended: #202331;
+    --visible-tab: #717cb470;
+
+    /* Modes */
+    --mode-command-fg: #ff5370;
+    --mode-explore-fg: #89ddff;
+    --mode-insert-fg: #c3e88d;
+    --mode-follow-fg: #c792ea;
+    --mode-search-fg: #ffcb6b;
+    
+    /* Suggestions */
+    --suggestions-selected: #414863;
+    --suggestions-border: #2b2a3e;
+    --suggestions-bg: #34324a;
+    --url-suggest: #c3e88d;
+    --url-search: #f78c6c;
+    --url-url: #89ddff;
+}
