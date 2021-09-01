@@ -2,6 +2,7 @@
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit
+export VIEB_WINDOW_FRAME=true
 
 # Import display variable for dunst
 systemctl --user import-environment DISPLAY
@@ -16,8 +17,7 @@ autorandr
 
 dunst& unclutter& numlockx& sxhkd& picom&
 
-WP=$(ls ~/Pictures/wallpapers | shuf -n1)
-xwallpaper --output eDP1 --maximize "$HOME/Pictures/wallpapers/$WP"
+~/.local/bin/set_wp
 
 # Attempt starting PulseAudio daemon?
 pulseaudio --start
