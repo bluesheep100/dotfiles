@@ -1,7 +1,8 @@
 #!/bin/bash
-DOC="$(ls $HOME/Documents | grep '\.pdf$' | dmenu -i)"
+DOC="$(ls -R "$HOME/Documents" | grep '\.pdf$' | dmenu -i)"
 
 if [ "$DOC" ]; then
-    zathura "$HOME/Documents/$DOC"
+    DOC=$(find "$HOME/Documents" -name "$DOC")
+    zathura "$DOC"
 fi
 
