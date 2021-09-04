@@ -1,0 +1,58 @@
+#!/bin/bash
+
+temp_widget() {
+    sensors | grep -i package | awk '{print $4}'
+}
+
+conn_widget() {
+    SSID="$(nmcli con show --active | awk -F '  ' 'NR==2{print $1}')"
+    DEVICE=" ($(nmcli con show --active | awk 'NR==2{print $NF}'))"
+
+    if [ "$SSID" = "" ]; then
+        SSID="Down"
+        DEVICE=""
+    fi
+
+    echo -n "$SSID$DEVICE"
+}
+
+battery_widget() {
+    CUR_PWR="$(cat /sys/class/power_supply/$1/charge_now)"
+	MAX_PWR="$(cat /sys/class/power_supply/$1/charge_full)"
+    CHARGING="$(cat /sys/class/power_supply/$1/status)"
+
+    if [ "$CHARGING" = "Charging" ]; then
+        ADDITIONAL=" "
+    else
+        ADDITIONAL=""
+    fi
+
+    OUT=$(echo "$CUR_PWR / $MAX_PWR * 100" | bc -l | cut -f 1 -d '.')
+    echo "$OUT%$ADDITIONAL"
+}
+
+volume_widget() {
+    MUTE="$(pulseaudio-ctl full-status | awk '{print $2}')"
+    VOL="$(pulseaudio-ctl full-status | awk '{print $1}')"
+    if [ "$MUTE" = "yes" ]; then
+        ADDITIONAL=" (M)"
+    else
+        ADDITIONAL=""
+    fi
+
+    echo -n "$VOL%$ADDITIONAL"
+}
+
+brightness_widget() {
+    brightnessctl | awk 'NR>1&&NR<3 {print $4}' | sed 's/[()]//g'
+}
+
+date_widget() {
+    echo "`date '+%d-%m-%Y %H:%M:%S'`"
+}
+
+while true; do
+	xsetroot -name "Net: `conn_widget` | T: `temp_widget` | Bri: `brightness_widget` | V: `volume_widget` | Bat: `battery_widget BAT0` | `date_widget`"
+	sleep 1
+done
+
