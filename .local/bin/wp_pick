@@ -1,6 +1,6 @@
 #!/bin/bash
 
 OP=$(xrandr --listmonitors | grep '*' | awk '{print $4}')
-WP=$(ls $HOME/Pictures/wallpapers | dmenu -i -l 10)
+WP=$(ls $HOME/Pictures/wallpapers | dmenu -sb "#3B60AE" -i -l 10)
 xwallpaper --output "$OP" --maximize "$HOME/Pictures/wallpapers/$WP"
 

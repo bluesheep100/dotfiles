@@ -1,5 +1,5 @@
 #!/bin/bash
-DOC="$(ls -R "$HOME/Documents" | grep '\.pdf$' | dmenu -i)"
+DOC="$(ls -R "$HOME/Documents" | grep '\.pdf$' | dmenu -sb "#985C4D" -i)"
 
 if [ "$DOC" ]; then
     DOC=$(find "$HOME/Documents" -name "$DOC")
