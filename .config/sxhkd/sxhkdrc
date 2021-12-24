@@ -16,6 +16,12 @@ super + z
 super + w
     wp_pick
 
+super + i
+    dmenumount
+
+super + u
+    dmenuumount
+
 XF86AudioMute
     pulseaudio-ctl mute
 
