@@ -11,7 +11,7 @@
 " If you would like to use another vi clone such as Elvis or Vile
 " you will need to change this setting.
 
-set vicmd=vim
+set vicmd=nvim
 " set vicmd=elvis\ -G\ termcap
 " set vicmd=vile
 
@@ -233,9 +233,10 @@ fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 " Images
 filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
         \ {View in feh}
-        \ feh -FZ %d --auto-zoom --scale-down --start-at %d/%c 2>/dev/null
+        \ feh -FZ %d --start-at %d/%c 2>/dev/null
+
 fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-         \ identify %f
+        \ identify %f
 
 " OpenRaster
 filextype *.ora

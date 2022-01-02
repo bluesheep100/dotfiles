@@ -65,7 +65,6 @@ alias vim="nvim"
 alias mutt="neomutt"
 alias startx="sx"
 alias l="ls -A"
-alias sudo="doas"
 
 ##### Config shortcuts
 alias cvim="vim ~/.config/nvim/init.vim"
@@ -74,7 +73,7 @@ alias ci3="vim ~/.config/i3/config"
 alias hsc="vim ~/Homestead/Homestead.yaml"
 alias alc="vim ~/.config/alacritty/alacritty.yml"
 alias cdu="vim ~/.config/dunst/dunstrc"
-alias cdwm="vim ~/Programs/dwm/config.h && cd ~/Programs/dwm && doas make clean install"
+alias cdwm="vim ~/Programs/dwm/config.h && cd ~/Programs/dwm && sudo make clean install"
 alias csx="vim ~/.config/sxhkd/sxhkdrc"
 alias vihosts='sudo nvim /etc/hosts'
 
@@ -83,7 +82,7 @@ alias proj='cd "$HOME/Projects/$(ls ~/Projects | fzf --layout reverse-list)"'
 alias hs="cd ~/Homestead && vagrant up && vagrant ssh"
 alias phpunit="./vendor/bin/phpunit tests --colors=auto"
 alias phinx="./vendor/bin/phinx"
-alias pmf="phinx rollback -t 0 && phinx migrate && phinx seed:run"
+alias pmfs="phinx rollback -t 0 && phinx migrate && phinx seed:run"
 
 ##### Miscellaneous utility
 alias yeet="rm -rf"
@@ -123,12 +122,8 @@ alias bt-headphones='bluetoothctl connect 00:0A:45:0B:1C:4A'
 alias bt-on='bluetoothctl power on'
 alias bt-off='bluetoothctl power off'
 
-# Load project shortcuts
-if [[ ! -f "$ZDOTDIR/shortcuts" ]]; then
-    touch $ZDOTDIR/shortcuts
-fi
-
-source "$ZDOTDIR/shortcuts"
+# Askpass program for certain dmenu scripts
+export SUDO_ASKPASS="/home/bluesheep/.local/bin/dpass"
 
 ##############################
 #           Exports          #
@@ -138,6 +133,7 @@ source "$ZDOTDIR/shortcuts"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/npm/bin"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+. "$HOME/.local/share/cargo/env"
 
 mkdir -p $XDG_DATA_HOME/zsh $XDG_DATA_HOME/wget $XDG_DATA_HOME/npm $XDG_DATA_HOME/gnupg
 
@@ -163,6 +159,9 @@ export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/mbsyncrc"
+export GOPATH="$XDG_DATA_HOME/go"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 

@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+alias cped="cd ~/Projects/elevdb"
+alias cpgt="cd ~/Projects/php-greentext"
+alias cppf="cd ~/Projects/portfolio"
+

@@ -8,13 +8,19 @@ env:
 
   WINIT_X11_SCALE_FACTOR: "1"
 
+# Background opacity
+#
+# Window opacity as a floating point number from `0.0` to `1.0`.
+# The value `0.0` is completely transparent and `1.0` is opaque.
+background_opacity: 1
+
 # Font configuration
 font:
   normal:
     family: monospace
 
   # Point size
-  size: 11
+  size: 13
 
 # Colors (Material Palenight)
 colors:
@@ -47,11 +53,6 @@ colors:
     cyan:    '#80cbc4'
     white:   '#c5c8c6'
 
-# Background opacity
-#
-# Window opacity as a floating point number from `0.0` to `1.0`.
-# The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.9
 
 selection:
   # When set to `true`, selected text will be copied to the primary clipboard.

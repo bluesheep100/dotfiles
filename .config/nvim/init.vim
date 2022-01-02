@@ -28,14 +28,37 @@ set noerrorbells
 " Plugins
 call plug#begin(stdpath('data') . '/plugged')
 
+" Colorscheme
 Plug 'drewtempelmeyer/palenight.vim'
+
+" Text object actions
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/ReplaceWithRegister'
+
+" Text objects
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
-Plug 'vim-scripts/ReplaceWithRegister'
+
+" Utility
+Plug 'nacro90/numb.nvim'
 Plug 'markonm/traces.vim'
+Plug 'noahfrederick/vim-laravel'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+" Massive highlighting pack
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
+
+syntax enable
+filetype plugin indent on
+
+" Initialize numb.nvim (line peeker)
+lua require('numb').setup()
+
+let g:php_version_id = 80009
 
 " Map leader key to comma(,)
 let g:mapleader = ','
@@ -52,14 +75,17 @@ set wildmenu
 " Disable saving swap files
 set nobackup
 
-" Disable automatic commenting on newline AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+" Disable automatic commenting on newline AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 autocmd FileType * setlocal formatoptions-=cro
+
+" Return to last edit position when opening files
+autocmd BufReadPost * :normal! '"zz
 
 " Enable ctags
 command! MakeTags !ctags -R .
 
 " XDG Base Directory settings
-set viminfo='0,:0,<0,@0,f0,n~/.viminfo
+set viminfo='10,:0,<0,@0,f0,n~/.config/nvim/.viminfo
 
 " Colorscheme
 colorscheme palenight
@@ -93,4 +119,7 @@ map <Leader>tk <C-w>t<C-W>K
 
 nnoremap <S-Enter> o<Esc>k
 nnoremap <C-Enter> O<Esc>j
+
+nmap <C-p> <Plug>MarkdownPreviewToggle
+nmap <C-s> :!sent %<CR>
 
